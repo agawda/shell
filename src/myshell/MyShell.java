@@ -26,4 +26,16 @@ class MyShell {
 
         return stringBuilder.toString();
     }
+
+    static void changeWorkingDirectory(String path) {
+        String dir = System.getProperty("user.dir");
+        if (path.equals("..")) {
+            File directory = new File(dir);
+            try {
+                System.setProperty("user.dir", directory.getParent());
+            } catch (NullPointerException e) {
+                System.out.println("This directory doesn\'t have a parent.");
+            }
+        }
+    }
 }

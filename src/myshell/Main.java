@@ -27,7 +27,8 @@ public class Main {
                         customPrompt = command.substring(7);
                     }
                 } else if(comm[0].equals("cd")) {
-
+                    String path = command.substring(3);
+                    changeWorkingDirectory(path);
                 } else if(command.equals("dir")) {
                     System.out.println(printDirectoryContents());
                 } else if (command.equals("tree")) {
