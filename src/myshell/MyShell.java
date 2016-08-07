@@ -28,19 +28,22 @@ class MyShell {
     }
 
     static void changeWorkingDirectory(String path) {
-        String dir = System.getProperty("user.dir");
+        StringBuilder dir = new StringBuilder(System.getProperty("user.dir"));
         if (path.equals("..")) {
-            File directory = new File(dir);
+            File directory = new File(dir.toString());
             try {
                 System.setProperty("user.dir", directory.getParent());
             } catch (NullPointerException e) {
                 System.out.println("This directory doesn\'t have a parent");
             }
         } else {
-            dir += File.separator + path;
-            File directory = new File(dir);
+            if (!dir.toString().endsWith("\\")) {
+                dir.append(File.separator);
+            }
+            dir.append(path);
+            File directory = new File(dir.toString());
             if (directory.isDirectory()) {
-                System.setProperty("user.dir", dir);
+                System.setProperty("user.dir", dir.toString());
             } else {
                 System.out.println("Wrong directory name");
             }
