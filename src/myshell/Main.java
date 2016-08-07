@@ -32,7 +32,7 @@ public class Main {
                 } else if(command.equals("dir")) {
                     System.out.println(printDirectoryContents());
                 } else if (command.equals("tree")) {
-
+                    System.out.println(displayTree());
                 } else {
                     System.out.println(command + " : " + "unknown command");
                 }
