@@ -1,6 +1,7 @@
 package myshell;
 
 import java.util.Scanner;
+import static myshell.MyShell.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,11 +20,11 @@ public class Main {
                 String comm[] = command.split("\\s");
                 if (comm[0].equals("prompt")) {
                     if (comm.length == 2 && comm[1].equals("reset")) {
-
+                        customPrompt = "$";
                     } else if (comm.length == 2 && comm[1].equals("$cwd")) {
-
+                        System.out.println(printCurrentWorkingDirectory());
                     } else {
-
+                        customPrompt = command.substring(7);
                     }
                 } else if(command.equals("dir")) {
 

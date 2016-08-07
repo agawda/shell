@@ -1,5 +1,7 @@
 package myshell;
 
-public class MyShell {
-
+class MyShell {
+    static String printCurrentWorkingDirectory() {
+        return System.getProperty("user.dir");
+    }
 }
