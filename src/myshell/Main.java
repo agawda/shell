@@ -26,11 +26,11 @@ public class Main {
                     } else {
                         customPrompt = command.substring(7);
                     }
+                } else if(comm[0].equals("cd")) {
+
                 } else if(command.equals("dir")) {
-
+                    System.out.println(printDirectoryContents());
                 } else if (command.equals("tree")) {
-
-                } else if(command.equals("cd")) {
 
                 } else {
                     System.out.println(command + " : " + "unknown command");
