@@ -8,6 +8,7 @@ public class ChangeDirectory {
 
     public void execute(String path) {
         Tools tools = new Tools();
+
         if (path.equals("..")) {
             String dir = tools.getWorkingPath();
             File directory = new File(dir);

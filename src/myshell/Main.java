@@ -35,7 +35,7 @@ public class Main {
         }
 
         if (cp != null) {
-            System.out.println(cp.initialize());
+            System.out.println(cp.get());
             return;
         }
 

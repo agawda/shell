@@ -7,7 +7,7 @@ import java.io.File;
 public class Dir implements CommandPrintable {
 
     @Override
-    public String initialize() {
+    public String get() {
         Tools tools = new Tools();
         String dir = tools.getWorkingPath();
         StringBuilder stringBuilder = new StringBuilder();

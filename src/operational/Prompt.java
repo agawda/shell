@@ -29,7 +29,6 @@ public class Prompt {
         System.out.print(prompt);
     }
 
-
     private void cwd() {
         Tools tools = new Tools();
         System.out.println(tools.getWorkingPath());
