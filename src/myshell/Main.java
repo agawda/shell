@@ -11,11 +11,6 @@ import java.util.Scanner;
 public class Main {
 
     private static void processCommand(String command, Prompt prompt) {
-        if (command.equals("exit")) {
-            prompt.exit();
-            return;
-        }
-
         String comm[] = command.split("\\s");
 
         if (comm[0].equals("prompt")) {
@@ -57,7 +52,7 @@ public class Main {
             command = in.nextLine();
 
             if (command.equals("exit")) {
-                prompt.exit();
+                System.out.println("Closing...");
                 break;
             }
 

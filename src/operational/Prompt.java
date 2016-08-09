@@ -24,10 +24,6 @@ public class Prompt {
         customPrompt = command;
     }
 
-    public void exit() {
-        System.out.print("Closing...");
-    }
-
     public void printPrompt() {
         String prompt = ("[MyShell] " + customPrompt + ">");
         System.out.print(prompt);

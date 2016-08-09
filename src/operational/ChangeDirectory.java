@@ -19,7 +19,9 @@ public class ChangeDirectory {
         if (!dir.toString().endsWith("\\")) {
             dir.append(File.separator);
         }
+
         dir.append(path);
+
         File directory = new File(dir.toString());
         if (directory.isDirectory()) {
             tools.setWorkingPath(dir.toString());
