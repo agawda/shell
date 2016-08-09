@@ -1,16 +1,8 @@
-package myshell;
+package tools;
 
 public class Tools {
     public String getWorkingPath() {
         return System.getProperty("user.dir");
-    }
-
-    public String printIndent(int indent) {
-        StringBuilder stringBuilder = new StringBuilder();
-        while (indent --> 0) {
-            stringBuilder.append("-");
-        }
-        return stringBuilder.toString();
     }
 
     public void setWorkingPath(String path) {

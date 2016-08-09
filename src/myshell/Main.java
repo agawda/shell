@@ -1,14 +1,18 @@
 package myshell;
 
+import operational.CommandOperational;
+
 import java.util.Scanner;
-import static myshell.MyShell.*;
 
 public class Main {
     public static void main(String[] args) {
-        final String MY_SHELL = "[MyShell] ";
-        String customPrompt = "$";
         Scanner in = new Scanner(System.in);
         String command;
+
+        while (true) {
+            CommandOperational op;
+
+        }
 
 //        while (true) {
 //            System.out.print(MY_SHELL + customPrompt + ">");

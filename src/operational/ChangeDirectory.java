@@ -1,10 +1,13 @@
-package myshell;
+package operational;
+
+import tools.Tools;
 
 import java.io.File;
 
-public class ChangeDirectory {
+public class ChangeDirectory implements CommandOperational{
 
-    public void initialize(String path) {
+    @Override
+    public void execute(String path) {
         Tools tools = new Tools();
         if (path.equals("..")) {
             String dir = tools.getWorkingPath();
