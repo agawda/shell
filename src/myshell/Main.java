@@ -1,46 +1,68 @@
 package myshell;
 
-import operational.CommandOperational;
+import operational.ChangeDirectory;
+import operational.Prompt;
+import printable.CommandPrintable;
+import printable.Dir;
+import printable.Tree;
 
 import java.util.Scanner;
 
 public class Main {
+
+    private static void processCommand(String command, Prompt prompt) {
+        if (command.equals("exit")) {
+            prompt.exit();
+            return;
+        }
+
+        String comm[] = command.split("\\s");
+
+        if (comm[0].equals("prompt")) {
+            prompt.executeCommand(command.substring(7));
+            return;
+        }
+
+        if (comm[0].equals("cd")) {
+            ChangeDirectory cd = new ChangeDirectory();
+            cd.execute(command.substring(3));
+            return;
+        }
+
+        CommandPrintable cp = null;
+
+        if (command.equals("dir")) {
+            cp = new Dir();
+        }
+
+        if (command.equals("tree")) {
+            cp = new Tree();
+        }
+
+        if (cp != null) {
+            System.out.println(cp.initialize());
+            return;
+        }
+
+        System.out.println("Unknown command: " + command);
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String command;
+        Prompt prompt = new Prompt();
 
         while (true) {
-            CommandOperational op;
+            prompt.printPrompt();
+            command = in.nextLine();
 
+            if (command.equals("exit")) {
+                prompt.exit();
+                break;
+            }
+
+            processCommand(command, prompt);
         }
 
-//        while (true) {
-//            System.out.print(MY_SHELL + customPrompt + ">");
-//            command = in.nextLine();
-//            if (command.equals("exit")) {
-//                System.out.println(MY_SHELL + "Closing...");
-//                break;
-//            } else {
-//                String comm[] = command.split("\\s");
-//                if (comm[0].equals("prompt")) {
-//                    if (comm.length == 2 && comm[1].equals("reset")) {
-//                        customPrompt = "$";
-//                    } else if (comm.length == 2 && comm[1].equals("$cwd")) {
-//                        System.out.println(printCurrentWorkingDirectory());
-//                    } else {
-//                        customPrompt = command.substring(7);
-//                    }
-//                } else if(comm[0].equals("cd")) {
-//                    String path = command.substring(3);
-//                    changeWorkingDirectory(path);
-//                } else if(command.equals("dir")) {
-//                    System.out.println(printDirectoryContents());
-//                } else if (command.equals("tree")) {
-//                    System.out.println(displayTree());
-//                } else {
-//                    System.out.println(command + " : " + "unknown command");
-//                }
-//            }
-//        }
     }
 }

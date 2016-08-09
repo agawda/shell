@@ -2,33 +2,41 @@ package operational;
 
 import tools.Tools;
 
-public class Prompt implements CommandOperational {
+public class Prompt {
 
-    @Override
-    public void execute(String command) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("[MyShell] ");
+    private String customPrompt;
+
+    public Prompt() {
+        customPrompt = "$";
+    }
+
+    public void executeCommand(String command) {
         if (command.equals("$cwd")) {
-            Tools tools = new Tools();
-            stringBuilder.append("$>");
-            stringBuilder.append(tools.getWorkingPath());
-            System.out.print(stringBuilder.toString());
+            cwd();
             return;
         }
 
         if (command.equals("reset")) {
-            stringBuilder.append("$>");
-            System.out.print(stringBuilder.toString());
+            customPrompt = "$";
             return;
         }
 
-        stringBuilder.append(command);
-        stringBuilder.append(">");
-        System.out.print(stringBuilder.toString());
+        customPrompt = command;
     }
 
-    public void printDefault() {
-        System.out.print("[MyShell] ");
+    public void exit() {
+        System.out.print("Closing...");
+    }
+
+    public void printPrompt() {
+        String prompt = ("[MyShell] " + customPrompt + ">");
+        System.out.print(prompt);
+    }
+
+
+    private void cwd() {
+        Tools tools = new Tools();
+        System.out.println(tools.getWorkingPath());
     }
 
 

@@ -4,9 +4,8 @@ import tools.Tools;
 
 import java.io.File;
 
-public class ChangeDirectory implements CommandOperational{
+public class ChangeDirectory {
 
-    @Override
     public void execute(String path) {
         Tools tools = new Tools();
         if (path.equals("..")) {
